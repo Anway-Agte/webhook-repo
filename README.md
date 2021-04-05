@@ -1,40 +1,5 @@
 # Dev Assessment - Webhook Receiver
 
-Please use this repository for constructing the Flask webhook receiver.
-
-*******************
-
-## Setup
-
-* Create a new virtual environment
-
-```bash
-pip install virtualenv
-```
-
-* Create the virtual env
-
-```bash
-virtualenv venv
-```
-
-* Activate the virtual env
-
-```bash
-source venv/bin/activate
-```
-
-* Install requirements
-
-```bash
-pip install -r requirements.txt
-```
-
-* Run the flask application (In production, please use Gunicorn)
-
-```bash
-python run.py
-```
 
 * The endpoint is at:
 
@@ -42,6 +7,26 @@ python run.py
 POST http://127.0.0.1:5000/webhook/receiver
 ```
 
-You need to use this as the base and setup the flask app. Integrate this with MongoDB (commented at `app/extensions.py`)
+* The UI is at:
+
+```bash
+GET <ngrok-link>/webhook/io 
+```
+
+*** File Structure *** 
+```bash 
+app/webhook/routes.py
+```
+All the routes and endpoints of the application . Data handling and processing modules . 
+ 
+```bash 
+ app/static/scripts.js 
+``` 
+Javascript calls from client side to server for continuous data receiving . 
+  
+ ```bash 
+app/templates/
+```
+HTML templates for UI
 
 *******************
