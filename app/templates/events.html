@@ -1,0 +1,26 @@
+<!--Contains events data which gets updated seperately from the main html -->
+
+{% if events %}
+
+{% for event in events %}
+
+<!--Checking if the even was a Push-->
+{% if event['action'] == 'PUSH' %}
+<p>{{event['author']}} pushed to {{event['to_branch']}} on {{event['timestamp']}}</p>
+
+<!--Checking if the event was a Pull Request-->
+{% elif event['action'] == 'PULL' %}
+<p>{{event['author']}} submitted a pull request from {{event['from_branch']}} to {{event['to_branch']}} on
+    {{event['timestamp']}}</p>
+
+<!--Else it was a merged pull request-->
+{% else %}
+<p>{{event['author']}} merged branch {{event['from_branch']}} into {{event['to_branch']}} on
+    {{event['timestamp']}}</p>
+{% endif %}
+{% endfor %}
+
+<!--If the received list was empty , there was no recent activity-->
+{% else %}
+<p>No recent activity to show</p>
+{% endif %}
