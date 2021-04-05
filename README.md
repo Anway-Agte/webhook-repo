@@ -27,6 +27,6 @@ Javascript calls from client side to server for continuous data receiving .
  ```bash 
 app/templates/
 ```
-HTML templates for UI
+HTML templates for User Interface
 
 *******************
